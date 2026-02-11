@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!--
+HULAYA — Organizer One-Pager (EN)
+Single-file CodePen (HTML only) — Clean, premium, scannable.
+Important: hulaya is for workshops, camps & events — NOT for weekly classes.
+-->
+
+<style>
+  :root{
+    --hx-bg:#ffffff;
+    --hx-soft:#f5f5f7;
+    --hx-soft2:#f9fafb;
+    --hx-text:#111827;
+    --hx-muted:#6b7280;
+    --hx-softtext:#9ca3af;
+    --hx-border:#e5e7eb;
+    --hx-gold:#c9ab47;
+    --hx-shadow: 0 18px 40px rgba(15,23,42,0.06);
+    --hx-shadow2: 0 22px 55px rgba(15,23,42,0.08);
+    --hx-radius-card:22px;
+    --hx-radius-pill:999px;
+    --hx-font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    font-family: var(--hx-font);
+    color: var(--hx-text);
+    background: linear-gradient(180deg, var(--hx-soft2), var(--hx-bg) 55%);
+  }
+
+  .hx-wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 18px 14px 56px;
+  }
+
+  /* Top brand bar */
+  .hx-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding: 10px 2px 18px;
+  }
+
+  .hx-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:0;
+  }
+
+  .hx-name{
+    font-weight: 950;
+    letter-spacing: -0.02em;
+    font-size: 14px;
+    line-height:1.1;
+    white-space:nowrap;
+  }
+
+  .hx-name small{
+    display:block;
+    margin-top: 2px;
+    font-size: 12px;
+    font-weight: 750;
+    color: var(--hx-muted);
+    letter-spacing: 0;
+  }
+
+  .hx-barRight{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .hx-pill{
+    display:inline-flex;
+    align-items:center;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: var(--hx-radius-pill);
+    border: 1px solid var(--hx-border);
+    background: rgba(255,255,255,0.92);
+    color: var(--hx-muted);
+    font-size: 12px;
+    font-weight: 850;
+    white-space:nowrap;
+  }
+
+  .hx-pill--gold{
+    border-color: rgba(201,171,71,0.55);
+    color: var(--hx-text);
+    background: rgba(201,171,71,0.10);
+  }
+
+  /* Hero */
+  .hx-hero{
+    padding: 8px 2px 14px;
+  }
+
+  .hx-kicker{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height: 30px;
+    padding: 0 14px;
+    border-radius: var(--hx-radius-pill);
+    border: 1px solid rgba(201,171,71,0.35);
+    background: rgba(255,255,255,0.92);
+    color: var(--hx-text);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .hx-title{
+    margin: 14px 0 10px;
+    font-size: clamp(34px, 4.2vw, 56px);
+    line-height: 1.05;
+    font-weight: 980;
+    letter-spacing: -0.04em;
+  }
+
+  .hx-subtitle{
+    margin: 0;
+    max-width: 860px;
+    color: var(--hx-muted);
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  .hx-subtitle strong{ color: var(--hx-text); font-weight: 950; }
+
+  /* Small note card */
+  .hx-noteCard{
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(201,171,71,0.35);
+    background: rgba(201,171,71,0.08);
+    color: var(--hx-text);
+    line-height: 1.65;
+    font-size: 14px;
+    box-shadow: 0 14px 30px rgba(15,23,42,0.05);
+  }
+  .hx-noteCard span{
+    color: var(--hx-muted);
+    font-weight: 750;
+  }
+
+  /* Cards */
+  .hx-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 14px;
+  }
+
+  .hx-card{
+    background: rgba(255,255,255,0.96);
+    border: 1px solid var(--hx-border);
+    border-radius: var(--hx-radius-card);
+    box-shadow: var(--hx-shadow);
+    padding: 22px;
+  }
+
+  .hx-card--highlight{
+    border-color: rgba(201,171,71,0.38);
+    box-shadow: var(--hx-shadow2);
+  }
+
+  .hx-headrow{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .hx-h2{
+    margin:0;
+    font-size: 18px;
+    font-weight: 950;
+    letter-spacing: -0.01em;
+  }
+
+  .hx-p{
+    margin: 10px 0 0;
+    color: var(--hx-muted);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* Offer block */
+  .hx-free{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top: 8px;
+  }
+
+  .hx-freeBig{
+    font-size: 46px;
+    font-weight: 980;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .hx-freeTag{
+    display:inline-flex;
+    height: 28px;
+    align-items:center;
+    padding: 0 10px;
+    border-radius: var(--hx-radius-pill);
+    border: 1px solid rgba(201,171,71,0.50);
+    background: rgba(201,171,71,0.10);
+    font-size: 12px;
+    font-weight: 950;
+  }
+
+  .hx-freePoints{
+    display:grid;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .hx-point{
+    display:flex;
+    gap: 12px;
+    align-items:flex-start;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid #eef2f7;
+    background: rgba(249,250,251,0.75);
+  }
+
+  .hx-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    margin-top: 6px;
+    background: var(--hx-gold);
+    box-shadow: 0 6px 16px rgba(201,171,71,0.18);
+    flex: 0 0 auto;
+  }
+
+  .hx-pointText{
+    font-weight: 800;
+    color: var(--hx-text);
+    line-height: 1.45;
+  }
+
+  .hx-pointText small{
+    display:block;
+    margin-top: 4px;
+    font-weight: 650;
+    color: var(--hx-muted);
+  }
+
+  /* 3-minute steps */
+  .hx-steps{
+    display:grid;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .hx-step{
+    display:flex;
+    gap: 12px;
+    align-items:flex-start;
+    padding: 12px;
+    border-radius: 16px;
+    border: 1px solid #eef2f7;
+    background: rgba(249,250,251,0.75);
+  }
+
+  .hx-num{
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid rgba(201,171,71,0.45);
+    background: rgba(201,171,71,0.10);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight: 950;
+    font-size: 13px;
+    flex: 0 0 auto;
+  }
+
+  .hx-stepTitle{
+    font-weight: 950;
+    margin: 0 0 4px;
+  }
+
+  .hx-stepText{
+    margin:0;
+    color: var(--hx-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Feature grid */
+  .hx-two{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .hx-box{
+    border-radius: 18px;
+    border: 1px solid #eef2f7;
+    background: rgba(249,250,251,0.75);
+    padding: 14px;
+  }
+
+  .hx-boxTop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .hx-boxName{
+    font-weight: 950;
+    letter-spacing: -0.01em;
+    display:flex;
+    align-items:center;
+    gap: 10px;
+  }
+
+  /* Feature icons */
+  .hx-ico{
+    width: 38px;
+    height: 38px;
+    border-radius: 14px;
+    border: 1px solid rgba(201,171,71,0.35);
+    background: rgba(201,171,71,0.10);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex: 0 0 auto;
+  }
+
+  .hx-ico svg{
+    width: 18px;
+    height: 18px;
+    display:block;
+    stroke: var(--hx-text);
+    opacity: .92;
+  }
+
+  .hx-boxText{
+    margin:0;
+    color: var(--hx-muted);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  /* CTA */
+  .hx-cta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    padding: 18px;
+    border-radius: var(--hx-radius-card);
+    border: 1px solid var(--hx-border);
+    background: rgba(245,245,247,0.82);
+    box-shadow: var(--hx-shadow);
+  }
+
+  .hx-ctaTitle{
+    font-weight: 980;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+
+  .hx-ctaText{
+    margin:0;
+    color: var(--hx-muted);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .hx-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height: 44px;
+    padding: 0 16px;
+    border-radius: var(--hx-radius-pill);
+    border: 1px solid rgba(201,171,71,0.55);
+    background: rgba(201,171,71,0.10);
+    color: var(--hx-text);
+    font-weight: 950;
+    text-decoration:none;
+    white-space: nowrap;
+  }
+
+  .hx-foot{
+    text-align:center;
+    padding: 18px 10px 0;
+    color: var(--hx-softtext);
+    font-size: 12px;
+  }
+
+  @media (min-width: 860px){
+    .hx-grid{ gap: 16px; }
+    .hx-card{ padding: 24px; }
+    .hx-two{ grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<div class="hx-wrap">
+
+  <div class="hx-bar">
+    <div class="hx-brand">
+
+    </div>
+    <div class="hx-barRight">
+    
+     
+    </div>
+  </div>
+
+  <header class="hx-hero">
+  
+    <h1 class="hx-title">One place for dance workshops, camps & events.</h1>
+    <p class="hx-subtitle">
+       
+      
+      <div>
+        
+      hulaya creates a <strong>central overview</strong> for dancers — and a clean system for organizers to list, sell and manage <strong>workshops, camps and events</strong>.
+    </p>
+    <div class="hx-noteCard">
+      <strong>Important:</strong> hulaya is built for <strong>workshops, camps and events</strong> — <span>not for weekly studio classes.</span>
+    </div>
+  </header>
+
+  <main class="hx-grid">
+
+    <!-- FREE first listing -->
+    <section class="hx-card hx-card--highlight">
+      <div class="hx-headrow">
+        <h2 class="hx-h2">Launch offer</h2>
+        <span class="hx-pill hx-pill--gold">FREE first listing</span>
+      </div>
+
+      <div class="hx-free">
+        <div class="hx-freeBig">FREE</div>
+        <div class="hx-freeTag">first listing</div>
+      </div>
+
+      <p class="hx-p">
+        Test hulaya with a real workshop, camp or event — without any risk. No fixed costs. Your first listing is on us.
+      </p>
+
+      <div class="hx-freePoints">
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">No setup fees
+            <small>Start without spending anything upfront.</small>
+          </div>
+        </div>
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">List in minutes
+            <small>Create your listing and go live fast.</small>
+          </div>
+        </div>
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">Get discovered
+            <small>Reach dancers through a community-first marketplace.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 min guide -->
+    <section class="hx-card">
+      <div class="hx-headrow">
+        <h2 class="hx-h2">How to post a listing in 3 minutes</h2>
+        <span class="hx-pill">3 simple steps</span>
+      </div>
+
+      <div class="hx-steps">
+        <div class="hx-step">
+          <div class="hx-num">1</div>
+          <div>
+            <div class="hx-stepTitle">Create your workshop, camp or event</div>
+            <p class="hx-stepText">Add title, date(s), location, schedule and description.</p>
+          </div>
+        </div>
+
+        <div class="hx-step">
+          <div class="hx-num">2</div>
+          <div>
+            <div class="hx-stepTitle">Add tickets</div>
+            <p class="hx-stepText">Set ticket types, prices, capacity and refund rules.</p>
+          </div>
+        </div>
+
+        <div class="hx-step">
+          <div class="hx-num">3</div>
+          <div>
+            <div class="hx-stepTitle">Publish</div>
+            <p class="hx-stepText">Go live instantly and start selling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="hx-card">
+      <div class="hx-headrow">
+        <h2 class="hx-h2">What you get with hulaya</h2>
+        <span class="hx-pill">All-in-one</span>
+      </div>
+
+      <div class="hx-two">
+
+        <div class="hx-box">
+          <div class="hx-boxTop">
+            <div class="hx-boxName">
+              <span class="hx-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                  <path d="M3 10h18"></path>
+                  <path d="M7 15h4"></path>
+                </svg>
+              </span>
+              Tickets + payments
+            </div>
+          </div>
+          <p class="hx-boxText">Sell professionally with a smooth checkout experience for dancers.</p>
+        </div>
+
+        <div class="hx-box">
+          <div class="hx-boxTop">
+            <div class="hx-boxName">
+              <span class="hx-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 7h4v4H7z"></path>
+                  <path d="M13 7h4v4h-4z"></path>
+                  <path d="M7 13h4v4H7z"></path>
+                  <path d="M13 13h2v2h-2z"></path>
+                  <path d="M4 9V5a1 1 0 0 1 1-1h4"></path>
+                  <path d="M20 9V5a1 1 0 0 0-1-1h-4"></path>
+                  <path d="M4 15v4a1 1 0 0 0 1 1h4"></path>
+                  <path d="M20 15v4a1 1 0 0 1-1 1h-4"></path>
+                </svg>
+              </span>
+              QR check-in
+            </div>
+          </div>
+          <p class="hx-boxText">Fast scanning, less chaos, no paper lists.</p>
+        </div>
+
+        <div class="hx-box">
+          <div class="hx-boxTop">
+            <div class="hx-boxName">
+              <span class="hx-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 6h13"></path>
+                  <path d="M8 12h13"></path>
+                  <path d="M8 18h13"></path>
+                  <path d="M3.5 6h.01"></path>
+                  <path d="M3.5 12h.01"></path>
+                  <path d="M3.5 18h.01"></path>
+                </svg>
+              </span>
+              Participant lists
+            </div>
+          </div>
+          <p class="hx-boxText">Auto-generated lists, mobile-friendly, exportable.</p>
+        </div>
+
+        <div class="hx-box">
+          <div class="hx-boxTop">
+            <div class="hx-boxName">
+              <span class="hx-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M14.5 9.5l-2 5-5 2 2-5 5-2z"></path>
+                </svg>
+              </span>
+              Discovery by dancers
+            </div>
+          </div>
+          <p class="hx-boxText">Your listing appears where dancers actually look for workshops, camps and events.</p>
+        </div>
+
+      </div>
+
+      <p class="hx-p" style="margin-top:14px;">
+        hulaya is not a typical ticketing tool. It’s a <strong>community-first marketplace</strong> built for the dance scene.
+      </p>
+    </section>
+
+    <!-- Mission -->
+    <section class="hx-card">
+      <div class="hx-headrow">
+        <h2 class="hx-h2">Our mission</h2>
+        <span class="hx-pill hx-pill--gold">Community first</span>
+      </div>
+
+      <p class="hx-p" style="margin-top:6px;">
+        hulaya exists to give dancers a <strong>single, trustworthy overview</strong> of workshops, camps and events —
+        and to give organizers a clean system that replaces DMs, spreadsheets and payment chaos.
+      </p>
+
+      <div class="hx-freePoints" style="margin-top:14px;">
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">Built for the dance community
+            <small>Not just ticketing — a marketplace made to discover and compare.</small>
+          </div>
+        </div>
+
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">Less friction, more focus
+            <small>Organizers spend less time on admin and more time on the actual event.</small>
+          </div>
+        </div>
+
+        <div class="hx-point">
+          <div class="hx-dot"></div>
+          <div class="hx-pointText">One platform, one experience
+            <small>Search, tickets, participant lists and check-in — all in one place.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="hx-cta">
+      <div>
+        <div class="hx-ctaTitle">Want to publish your first workshop, camp or event?</div>
+        <p class="hx-ctaText">We’ll help you set it up fast. Your first listing is free.</p>
+      </div>
+      <a class="hx-btn" href="https://hulaya.com" target="_blank" rel="noopener">hulaya.com</a>
+    </section>
+
+
+  </main>
+</div>
+    
+  </body>
+  
+</html>
