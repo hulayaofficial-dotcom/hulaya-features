@@ -92,3 +92,15 @@ git config --global credential.helper manager-core
    git push -u origin <dein-branch>
    ```
 3. Bei der Passwortabfrage den **neuen PAT** verwenden.
+
+## H) ChatGPT Codex Connector in deinem Screenshot
+Ja, das ist gut und sollte aktiviert sein (Save klicken).
+
+Wichtig: Der Connector in deinem Browser-Account bedeutet nicht automatisch,
+dass **diese Runtime-Session** hier dieselben Netz-/Auth-Rechte hat.
+
+Darum kann es passieren:
+- bei dir im Browser alles korrekt,
+- aber in dieser Ausführungsumgebung weiterhin `git ls-remote` / `git push` mit 403.
+
+In dem Fall muss die Runtime selbst Zugriff auf GitHub bekommen (Netzwerk/Proxy/egress + Credentials).
