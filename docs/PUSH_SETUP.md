@@ -58,3 +58,19 @@ Bei Login-Prompt:
 - Ist das richtige Repo im Token ausgewählt?
 - Ist SSO autorisiert?
 - Blockiert ein Firmenproxy GitHub?
+
+## F) Wenn dein Token-Screen so aussieht wie im Screenshot
+Dann ist es **fast fertig**. Als nächstes:
+1. Verifiziere einmalig in `Repository permissions`, dass wirklich `Read and Write` gesetzt ist.
+2. Gehe zurück ins Repo und prüfe unter **Settings → Collaborators**, dass dein User **Write** hat.
+3. Starte lokal den Push-Befehl:
+   ```bash
+   git push -u origin <dein-branch>
+   ```
+4. Wenn Git nach Passwort fragt: **PAT einfügen**.
+
+Optional (wenn Git-Credentials Probleme machen):
+```bash
+git config --global credential.helper manager-core
+```
+(auf macOS alternativ meist `osxkeychain`.)
