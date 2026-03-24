@@ -2,6 +2,16 @@
 
 Wenn `git push` mit 403 fehlschlägt, fehlen meistens Rechte oder ein gültiges Token.
 
+
+## A0) Wichtig: Wenn du Repo-Owner bist
+Wenn das Repo in **deinem eigenen Account/Org** liegt und du als Owner eingeloggt bist,
+musst du **keinen zusätzlichen Collaborator** einladen.
+Dann sind die häufigsten 403-Ursachen:
+- falsches/abgelaufenes Token
+- Token ohne richtige Repo-Berechtigung
+- SSO nicht autorisiert (bei Org)
+- lokaler Git-Client nutzt alte Credentials
+
 ## A) Im **Repo** Rechte vergeben (dein aktueller Screenshot)
 Du bist schon richtig auf:
 `hulayaofficial-dotcom/Hulaya-Marketplace` → **Settings**.
@@ -74,3 +84,11 @@ Optional (wenn Git-Credentials Probleme machen):
 git config --global credential.helper manager-core
 ```
 (auf macOS alternativ meist `osxkeychain`.)
+
+## G) Wenn du Owner bist und trotzdem 403 bekommst (häufigster Fix)
+1. Alte GitHub-Credentials im System löschen (Keychain/Credential Manager).
+2. Danach erneut pushen:
+   ```bash
+   git push -u origin <dein-branch>
+   ```
+3. Bei der Passwortabfrage den **neuen PAT** verwenden.
